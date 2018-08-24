@@ -43,6 +43,7 @@
 
 import http.server
 import requests
+import os
 from urllib.parse import unquote, parse_qs
 
 memory = {}
@@ -159,6 +160,7 @@ class Shortener(http.server.BaseHTTPRequestHandler):
             self.wfile.write("Please specify a valid longuri in request".encode())
 
 if __name__ == '__main__':
-    server_address = ('', 8000)
+    port = int(os.environ.get('PORT', 8000))
+    server_address = ('', port)
     httpd = http.server.HTTPServer(server_address, Shortener)
     httpd.serve_forever()
