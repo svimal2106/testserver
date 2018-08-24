@@ -1,0 +1,9 @@
+# IntelliJ
+*.iml
+**/.idea
+
+# Mac OS Stuff
+**/.DS_Store
+
+# .pyc files
+**/*.pyc
